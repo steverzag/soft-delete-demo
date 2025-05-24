@@ -10,7 +10,7 @@
 ## Installation
 1. Clone this repository:
    ```sh
-   git clone https://github.com/steverzag/user-tasks.git
+   git clone https://github.com/steverzag/soft-delete-demo.git
    cd <repository-folder>
    ```
 2. Restore dependencies:
