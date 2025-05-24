@@ -1,0 +1,86 @@
+@SoftDeleteDemo_HostAddress = http://localhost:5000
+
+### Get all users
+GET {{SoftDeleteDemo_HostAddress}}/users?includeDeleted=false
+Accept: application/json
+
+### Create an user
+POST {{SoftDeleteDemo_HostAddress}}/users
+Content-Type: application/json
+{
+  "firstName": "",
+  "lastName": "",
+  "email": ""
+}
+
+### Update an user
+PUT {{SoftDeleteDemo_HostAddress}}/users
+Content-Type: application/json
+{
+  "id": 1,
+  "firstName": "Steven",
+  "lastName": "Smith",
+  "email": "steven.smith@gmail.com"
+}
+
+### Get an user
+GET {{SoftDeleteDemo_HostAddress}}/users/2
+Accept: application/json
+
+### Delete an user
+DELETE {{SoftDeleteDemo_HostAddress}}/users/1
+Accept: application/json
+
+### Get all tasks
+GET {{SoftDeleteDemo_HostAddress}}/tasks?includeDeleted=false
+Accept: application/json
+
+### Get one tasks
+GET {{SoftDeleteDemo_HostAddress}}/tasks/5
+Accept: application/json
+
+### Get tasks by user
+GET {{SoftDeleteDemo_HostAddress}}/tasks/by-user/1?includeDeleted=true
+Accept: application/json
+
+### Create task
+POST {{SoftDeleteDemo_HostAddress}}/tasks/
+Content-Type: application/json
+{
+  "title": "Third Task",
+	"description": "description3",
+	"priority": 1,
+	"status": 1
+}
+
+### Update Task
+PUT {{SoftDeleteDemo_HostAddress}}/tasks
+Content-Type: application/json
+{
+  "id": 1,
+  "title": "Task",
+	"description": "description",
+	"priority": 1,
+	"status": 1,
+  "userId": 1
+}
+
+### Delete Task
+DELETE {{SoftDeleteDemo_HostAddress}}/tasks/2
+Accept: application/json
+
+### Complete Task
+PATCH {{SoftDeleteDemo_HostAddress}}/tasks/1/complete
+Accept: application/json
+
+### UnComplete Task
+PATCH {{SoftDeleteDemo_HostAddress}}/tasks/1/uncomplete
+Accept: application/json
+
+### Asign Task To User
+PATCH {{SoftDeleteDemo_HostAddress}}/tasks/assign-user
+Content-Type: application/json
+{
+  "taskId": 3,
+  "userId": 2
+}
